@@ -1,0 +1,84 @@
+/* 	
+	Copyright 2017 Anup Sawant. All rights reserved. 
+	@author: anupsawant
+	@info: styling for hangman game
+*/
+
+@default-margin: 1rem;
+@color-theme: #0d720b;
+
+html,
+body {
+	background-color: white;
+	height: 100%;
+}
+
+.underheading {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+/* Image properties */
+#hangman-animation{
+	margin-top: @default-margin;
+}
+
+#cover {
+	text-align: center;
+}
+
+#spaces {
+	margin-top: @default-margin;
+	margin-bottom: @default-margin;
+	font-size: 35px;
+	font-weight: 800px;
+}
+
+#no-of-attempts-left{
+	margin-bottom: @default-margin;
+	font-size: 25px;
+	font-weight: 500px;
+}
+
+#attempts {
+	#no-of-attempts-left;
+	color: red;
+}
+
+#keyboard {
+	padding-top: @default-margin;
+	height:50%;
+	background: url(../images/gray_jean_@2X.jpg) center;
+}
+
+.letter {
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 3rem;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	background-color: fadeout(@color-theme, 90%);
+	transition: 0.3s;
+
+	&:hover{
+		transition: 0.3s;
+		background-color: fadeout(@color-theme, 10%);
+		cursor: pointer;
+		cursor: hand;
+	}
+}
+
+.table {
+	text-align: center;
+	border-bottom:0px !important;
+	& th, & td {
+		border: 1px !important;
+	}
+}
+
+
+
+

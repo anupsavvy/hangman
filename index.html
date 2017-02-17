@@ -1,0 +1,96 @@
+<!--	
+		Copyright 2017 Anup Sawant. All rights reserved. 
+		@author: anupsawant 
+		@info: index page for hangman game
+-->
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Hangman Game
+		</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- fontawesome styling -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!-- custom styling -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<section id="cover">
+			<div class="section-cover">
+				<div class="container">
+					<div class="page-header">
+						<h2>Hangman</h2>
+						<p class="lead underheading">You need to guess a word. You have six attempts at it. All words are from 'Coding Bootcamp' domain :) </p>
+					</div>
+					<img id="hangman-animation" src="./images/hangman01.png" alt="" style="width:250px;height:250px;">
+					<p id="spaces" class="lead"></p>
+					<p id="no-of-attempts-left" class="lead">Number of attempts left : <span id="attempts">6<span></p>
+				</div>
+			</div>
+		</section> <!-- end of cover section -->
+		<section id="keyboard">
+			<div class="section-keyboard">
+				<!-- <button onclick="animateHangman();" class="btn btn-lg btn-primary">Change image</button>
+ -->
+				<table class="table borderless">
+					<tbody>
+						<tr>
+							<td>
+								<span onclick="matchLetter(this);" class="fa fa-a letter">a</span>
+								<span onclick="matchLetter(this);" class="fa fa-b letter">b</span>
+								<span onclick="matchLetter(this);" class="fa fa-c letter">c</span>
+								<span onclick="matchLetter(this);" class="fa fa-d letter">d</span>
+								<span onclick="matchLetter(this);" class="fa fa-e letter">e</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span onclick="matchLetter(this);" class="fa fa-f letter">f</span>
+								<span onclick="matchLetter(this);" class="fa fa-g letter">g</span>
+								<span onclick="matchLetter(this);" class="fa fa-h letter">h</span>
+								<span onclick="matchLetter(this);" class="fa fa-i letter">i</span>
+								<span onclick="matchLetter(this);" class="fa fa-j letter">j</span>
+								<span onclick="matchLetter(this);" class="fa fa-k letter">k</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span onclick="matchLetter(this);" class="fa fa-l letter">l</span>
+								<span onclick="matchLetter(this);" class="fa fa-m letter">m</span>
+								<span onclick="matchLetter(this);" class="fa fa-n letter">n</span>
+								<span onclick="matchLetter(this);" class="fa fa-o letter">o</span>
+								<span onclick="matchLetter(this);" class="fa fa-p letter">p</span>
+								<span onclick="matchLetter(this);" class="fa fa-q letter">q</span>
+								<span onclick="matchLetter(this);" class="fa fa-r letter">r</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+								<span onclick="matchLetter(this);" class="fa fa-s letter">s</span>
+								<span onclick="matchLetter(this);" class="fa fa-t letter">t</span>
+								<span onclick="matchLetter(this);" class="fa fa-u letter">u</span>
+								<span onclick="matchLetter(this);" class="fa fa-v letter">v</span>
+								<span onclick="matchLetter(this);" class="fa fa-w letter">w</span>
+								<span onclick="matchLetter(this);" class="fa fa-x letter">x</span>
+								<span onclick="matchLetter(this);" class="fa fa-y letter">y</span>
+								<span onclick="matchLetter(this);" class="fa fa-z letter">z</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="./js/hangman.js"></script>
+	</body>
+</html>
