@@ -9,12 +9,27 @@ var all_words = ["coding","bootcamp","javascript","html","css","python","django"
 var previous_word = "";
 var current_word = all_words[Math.floor(Math.random()*all_words.length)];
 var empty_word_array = [];
-var no_of_attempts_left = 6;
+var no_of_attempts_left = 7;
 var letter_count = {};
 var letter_incremental_index = {};
+var wins = 0;
+var losses = 0;
 
+/*
+	starts the game
+	@params : None
+	@returns : None
+*/
 function start(){
-	imageCounter = 2;
+	imageCounter = 1;
+	previous_word = "";
+    current_word = all_words[Math.floor(Math.random()*all_words.length)];
+    empty_word_array = [];
+    no_of_attempts_left = 7;
+    letter_count = {};
+    letter_incremental_index = {};
+    document.getElementById("next-game").style.visibility='hidden';
+    animateHangman();
 	create_random_word();
 	createSpaces();
 }
@@ -23,12 +38,23 @@ window.onload = function (){
 	start();	
 };
 
-function clearSpaces(){
-
+/*
+	Clears the red background color of buttons
+	@params : None
+	@returns : None
+*/
+function nextGame(){
+	var letters = document.getElementsByClassName("letter");
+    for(var letter of letters){
+    	letter.style.backgroundColor = 'rgba(13, 114, 11, 0.1)';
+    }
+    start();
 }
 
 /*
-
+	Clears spaces
+	@params : None
+	@returns : None
 */
 function update_spaces_and_letters_on_screen(){
 	var spaces = document.getElementById("spaces");
@@ -88,12 +114,19 @@ function animateHangman(){
 		attempts.innerHTML = no_of_attempts_left; 
 	}else{
 		image.src = "./images/hangman0"+imageCounter+".gif";
+		if(imageCounter === 8){
+			losses++;
+			document.getElementById("losses").innerHTML = " losses : " + losses;
+			document.getElementById("next-game").style.visibility='visible';
+		}
 	}
 	imageCounter += 1;
 }
 
 /*
-
+	This function finds the index of a character, if duplicate
+	@params : startindex, letter clicked by user
+	@returns : None
 */
 function get_duplicate_letter_index(startindex,letter_clicked_by_user){
 	var index = -1;
@@ -107,7 +140,9 @@ function get_duplicate_letter_index(startindex,letter_clicked_by_user){
 }
 
 /*
-
+	This function defines the logic of hangman game
+	@params : letter character
+	@returns : None
 */
 function matchLetter(letter){
 	var letter_clicked_by_user = letter.innerHTML;
@@ -123,12 +158,15 @@ function matchLetter(letter){
 		empty_word_array[letter_index] = letter_clicked_by_user;
 		update_spaces_and_letters_on_screen();
 
-		/* update dictionaries */
+		/* update dictionaries */ 
 		var count = letter_count[letter_clicked_by_user];
 		letter_count[letter_clicked_by_user] = count - 1;
 		letter_incremental_index[letter_clicked_by_user] = letter_index;
 		if(empty_word_array.indexOf('__') === -1){
 			imageCounter = 9;
+			wins++;
+			document.getElementById("wins").innerHTML = " wins : " + wins;
+			document.getElementById("next-game").style.visibility='visible';
 			animateHangman();
 		}
 	}else{ // if letter is not found

@@ -55,7 +55,7 @@ body {
 }
 .letter:hover {
   transition: 0.3s;
-  background-color: rgba(13, 114, 11, 0.9);
+  background-color: rgba(13, 114, 11, 0.9) !important;
   cursor: pointer;
   cursor: hand;
 }
